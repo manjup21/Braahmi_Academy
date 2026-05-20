@@ -1,0 +1,84 @@
+import { siteConfig } from '../../config/site';
+import { navLinks, siteInfo } from '../../data/content';
+
+export function MobileDrawer({ open, onClose, activeSection }) {
+  return (
+    <>
+      <button
+        type="button"
+        aria-label="Close menu"
+        onClick={onClose}
+        className={`fixed inset-0 z-55 bg-primary/40 backdrop-blur-sm transition-opacity duration-300 md:hidden ${
+          open ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0'
+        }`}
+        tabIndex={open ? 0 : -1}
+      />
+
+      <aside
+        id="mobile-nav"
+        aria-hidden={!open}
+        className={`fixed inset-y-0 left-0 z-60 flex w-[min(100%,18.5rem)] max-w-[85vw] flex-col border-r border-surface-container-highest bg-surface shadow-2xl transition-transform duration-300 ease-out md:hidden ${
+          open ? 'translate-x-0' : '-translate-x-full pointer-events-none'
+        }`}
+      >
+        <div className="flex shrink-0 items-center justify-between gap-3 border-b border-surface-container-highest px-4 py-4">
+          <div className="flex min-w-0 items-center gap-2.5">
+            <img alt="" className="h-9 w-9 shrink-0 rounded-lg object-cover" src={siteInfo.logo} />
+            <span className="truncate font-display text-base font-extrabold text-primary">
+              {siteInfo.shortName}
+            </span>
+          </div>
+          <button
+            type="button"
+            onClick={onClose}
+            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-surface-container-low text-primary transition-colors hover:bg-surface-container"
+            aria-label="Close menu"
+          >
+            <span className="material-symbols-outlined text-2xl">close</span>
+          </button>
+        </div>
+
+        <nav className="flex-1 overflow-y-auto px-3 py-4" aria-label="Main navigation">
+          <ul className="flex flex-col gap-1">
+            {navLinks.map((link) => {
+              const isActive = activeSection === link.id;
+              return (
+                <li key={link.id}>
+                  <a
+                    href={link.href}
+                    onClick={onClose}
+                    className={`flex items-center gap-3 rounded-xl px-4 py-3.5 font-body text-base transition-colors ${
+                      isActive
+                        ? 'bg-primary font-semibold text-white shadow-sm'
+                        : 'text-on-surface-variant hover:bg-surface-container-low'
+                    }`}
+                  >
+                    <span
+                      className={`material-symbols-outlined text-[22px] ${
+                        isActive ? 'text-white' : 'text-primary'
+                      }`}
+                    >
+                      {link.icon}
+                    </span>
+                    {link.label}
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+        </nav>
+
+        <div className="shrink-0 border-t border-surface-container-highest px-3 py-4">
+          <a
+            href={`mailto:${siteConfig.contactEmail}`}
+            onClick={onClose}
+            className="flex items-center gap-3 rounded-xl border border-primary/15 bg-surface-container-low px-4 py-3.5 font-body text-base font-semibold text-primary transition-colors hover:bg-primary/5"
+          >
+            <span className="material-symbols-outlined text-[22px] text-primary">mail</span>
+            Contact Admissions
+          </a>
+        </div>
+      </aside>
+    </>
+  );
+}

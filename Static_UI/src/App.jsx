@@ -1,28 +1,77 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import './App.css'
+import { useCallback, useEffect, useState } from 'react';
+import { Header } from './components/layout/Header';
+import { MobileDrawer } from './components/layout/MobileDrawer';
+import { FloatingActions } from './components/layout/FloatingActions';
+import { Footer } from './components/layout/Footer';
+import { HeroSection } from './components/sections/HeroSection';
+import { NoticeTicker } from './components/sections/NoticeTicker';
+import { AboutSection } from './components/sections/AboutSection';
+import { CampusSection } from './components/sections/CampusSection';
+import { ProgramsSection } from './components/sections/ProgramsSection';
+import { WhyChooseUs } from './components/sections/WhyChooseUs';
+import { VisionMissionSection } from './components/sections/VisionMissionSection';
+import { FeaturedTestimonial } from './components/sections/FeaturedTestimonial';
+import { TestimonialsSection } from './components/sections/TestimonialsSection';
+import { CampusGallery } from './components/sections/CampusGallery';
+import { ContactSection } from './components/sections/ContactSection';
+import { MapSection } from './components/sections/MapSection';
+import { scrollSectionIds } from './data/content';
 
-function App() {
-  const [count, setCount] = useState(0)
+export default function App() {
+  const [drawerOpen, setDrawerOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
+
+  const updateActiveSection = useCallback(() => {
+    const offset = 120;
+    let current = 'home';
+    for (const id of scrollSectionIds) {
+      const el = document.getElementById(id);
+      if (el && el.getBoundingClientRect().top <= offset) {
+        current = id;
+      }
+    }
+    setActiveSection(current);
+  }, []);
+
+  useEffect(() => {
+    updateActiveSection();
+    window.addEventListener('scroll', updateActiveSection, { passive: true });
+    return () => window.removeEventListener('scroll', updateActiveSection);
+  }, [updateActiveSection]);
+
+  useEffect(() => {
+    if (!drawerOpen) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = prev;
+    };
+  }, [drawerOpen]);
 
   return (
-    <div className="app">
-      <header className="app-header">
-        <a href="https://vite.dev" target="_blank" rel="noreferrer">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank" rel="noreferrer">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-        <h1>Braahmi Academy — Static UI</h1>
-        <p>Edit <code>src/App.jsx</code> and save to test hot reload.</p>
-        <button type="button" onClick={() => setCount((c) => c + 1)}>
-          Count is {count}
-        </button>
-      </header>
-    </div>
-  )
+    <>
+      <Header
+        drawerOpen={drawerOpen}
+        onMenuOpen={() => setDrawerOpen(true)}
+        onMenuClose={() => setDrawerOpen(false)}
+      />
+      <MobileDrawer open={drawerOpen} onClose={() => setDrawerOpen(false)} activeSection={activeSection} />
+      <FloatingActions />
+      <main>
+        <HeroSection />
+        <NoticeTicker />
+        <AboutSection />
+        <CampusSection />
+        <ProgramsSection />
+        <WhyChooseUs />
+        <VisionMissionSection />
+        <FeaturedTestimonial />
+        <TestimonialsSection />
+        <CampusGallery />
+        <ContactSection />
+        <MapSection />
+      </main>
+      <Footer />
+    </>
+  );
 }
-
-export default App
