@@ -10,11 +10,11 @@ import { CampusSection } from './components/sections/CampusSection';
 import { ProgramsSection } from './components/sections/ProgramsSection';
 import { WhyChooseUs } from './components/sections/WhyChooseUs';
 import { VisionMissionSection } from './components/sections/VisionMissionSection';
+import { FacultySection } from './components/sections/FacultySection';
 import { FeaturedTestimonial } from './components/sections/FeaturedTestimonial';
 import { TestimonialsSection } from './components/sections/TestimonialsSection';
 import { CampusGallery } from './components/sections/CampusGallery';
 import { ContactSection } from './components/sections/ContactSection';
-import { MapSection } from './components/sections/MapSection';
 import { scrollSectionIds } from './data/content';
 
 export default function App() {
@@ -65,11 +65,11 @@ export default function App() {
         <ProgramsSection />
         <WhyChooseUs />
         <VisionMissionSection />
+        <FacultySection />
         <FeaturedTestimonial />
         <TestimonialsSection />
         <CampusGallery />
         <ContactSection />
-        <MapSection />
       </main>
       <Footer />
     </>

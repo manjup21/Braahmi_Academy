@@ -22,7 +22,7 @@ export function useInView(threshold = 0.08) {
           observer.disconnect();
         }
       },
-      { threshold, rootMargin: '0px 0px -40px 0px' },
+      { threshold, rootMargin: '0px 0px -8% 0px' },
     );
 
     observer.observe(el);

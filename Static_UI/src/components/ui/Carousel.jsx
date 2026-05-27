@@ -1,4 +1,5 @@
 import { Children, useCallback, useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Reveal } from './Reveal';
 
 export function SectionIntro({ title, subtitle, theme = 'light' }) {
@@ -7,7 +8,7 @@ export function SectionIntro({ title, subtitle, theme = 'light' }) {
   return (
     <Reveal className="mb-8 text-center md:mb-9">
       <h2 className={`font-display text-headline-md ${isDark ? 'text-white' : 'text-primary'}`}>{title}</h2>
-      <div className="mx-auto mt-3 h-1 w-16 rounded-full bg-accent" />
+      <div className="accent-bar mx-auto mt-3 h-1 rounded-full bg-accent" />
       {subtitle ? (
         <p
           className={`mx-auto mt-4 max-w-2xl font-body text-body-md ${
@@ -29,6 +30,7 @@ export function Carousel({
   fillWidth = false,
   scrollStep = 1,
 }) {
+  const { t } = useTranslation();
   const trackRef = useRef(null);
   const slideCount = Children.count(children);
   const [activeIndex, setActiveIndex] = useState(0);
@@ -108,7 +110,7 @@ export function Carousel({
   };
 
   const arrowBase =
-    'flex h-10 w-10 shrink-0 items-center justify-center rounded-full transition-all disabled:pointer-events-none disabled:opacity-30';
+    'flex h-10 w-10 shrink-0 items-center justify-center rounded-full transition-all duration-300 disabled:pointer-events-none disabled:opacity-30 hover:scale-105 active:scale-95';
   const arrowOverlay = 'absolute top-1/2 z-10 hidden -translate-y-1/2 md:flex';
   const arrowTheme = isDark
     ? 'bg-white/15 text-white shadow-lg hover:bg-white/25'
@@ -119,7 +121,9 @@ export function Carousel({
 
   const trackRowClass = fillWidth
     ? 'flex w-full snap-x snap-mandatory items-stretch justify-start gap-5'
-    : 'mx-auto flex w-max max-w-full snap-x snap-mandatory items-stretch justify-center gap-5';
+    : hasOverflow
+      ? 'flex w-max max-w-full snap-x snap-mandatory items-stretch justify-start gap-5'
+      : 'mx-auto flex w-max max-w-full snap-x snap-mandatory items-stretch justify-center gap-5';
 
   return (
     <div className="relative sm:px-10">
@@ -127,7 +131,7 @@ export function Carousel({
         <>
           <button
             type="button"
-            aria-label="Previous slide"
+            aria-label={t('common.previousSlide')}
             disabled={!canScrollLeft}
             onClick={() => scrollByStep(-1)}
             className={`${arrowBase} ${arrowOverlay} ${arrowTheme} left-0`}
@@ -136,7 +140,7 @@ export function Carousel({
           </button>
           <button
             type="button"
-            aria-label="Next slide"
+            aria-label={t('common.nextSlide')}
             disabled={!canScrollRight}
             onClick={() => scrollByStep(1)}
             className={`${arrowBase} ${arrowOverlay} ${arrowTheme} right-0`}
@@ -150,7 +154,7 @@ export function Carousel({
         ref={trackRef}
         aria-label={ariaLabel}
         aria-roledescription="carousel"
-        className="carousel-track overflow-x-auto scroll-smooth pb-2 pt-1"
+        className="carousel-track overflow-x-auto scroll-smooth px-3 pb-2 pt-1"
         role="region"
       >
         <div className={trackRowClass}>
@@ -161,7 +165,7 @@ export function Carousel({
               className={`flex shrink-0 snap-start ${slideClassName}`}
               role="group"
               aria-roledescription="slide"
-              aria-label={`Slide ${index + 1} of ${slideCount}`}
+              aria-label={t('common.slideOf', { current: index + 1, total: slideCount })}
             >
               <div className="flex h-full w-full min-h-0 flex-col *:h-full *:w-full">{child}</div>
             </div>
@@ -173,7 +177,7 @@ export function Carousel({
         <div className="mt-4 flex justify-center gap-4 md:hidden">
           <button
             type="button"
-            aria-label="Previous slide"
+            aria-label={t('common.previousSlide')}
             disabled={!canScrollLeft}
             onClick={() => scrollByStep(-1)}
             className={`${arrowBase} ${arrowTheme}`}
@@ -182,7 +186,7 @@ export function Carousel({
           </button>
           <button
             type="button"
-            aria-label="Next slide"
+            aria-label={t('common.nextSlide')}
             disabled={!canScrollRight}
             onClick={() => scrollByStep(1)}
             className={`${arrowBase} ${arrowTheme}`}
@@ -193,16 +197,16 @@ export function Carousel({
       ) : null}
 
       {dotCount > 1 ? (
-        <div className="mt-4 flex justify-center gap-2 md:mt-5" role="tablist" aria-label="Carousel pagination">
+        <div className="mt-4 flex justify-center gap-2 md:mt-5" role="tablist" aria-label={t('common.carouselPagination')}>
           {Array.from({ length: dotCount }, (_, index) => (
             <button
               key={index}
               type="button"
               role="tab"
               aria-selected={activeIndex === index}
-              aria-label={`Go to slide ${index + 1} of ${dotCount}`}
+              aria-label={t('common.goToSlide', { n: index + 1, total: dotCount })}
               onClick={() => scrollToIndex(index)}
-              className={`h-2 rounded-full transition-all ${
+              className={`h-2 rounded-full transition-all duration-300 ${
                 activeIndex === index ? dotActive : `w-2 ${dotIdle}`
               }`}
             />

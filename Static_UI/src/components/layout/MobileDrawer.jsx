@@ -1,12 +1,17 @@
+import { useTranslation } from 'react-i18next';
 import { siteConfig } from '../../config/site';
-import { navLinks, siteInfo } from '../../data/content';
+import { useContent } from '../../hooks/useContent';
+import { LanguageSelector } from '../ui/LanguageSelector';
 
 export function MobileDrawer({ open, onClose, activeSection }) {
+  const { t } = useTranslation();
+  const { navLinks, siteInfo } = useContent();
+
   return (
     <>
       <button
         type="button"
-        aria-label="Close menu"
+        aria-label={t('common.closeMenu')}
         onClick={onClose}
         className={`fixed inset-0 z-55 bg-primary/40 backdrop-blur-sm transition-opacity duration-300 md:hidden ${
           open ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0'
@@ -23,7 +28,7 @@ export function MobileDrawer({ open, onClose, activeSection }) {
       >
         <div className="flex shrink-0 items-center justify-between gap-3 border-b border-surface-container-highest px-4 py-4">
           <div className="flex min-w-0 items-center gap-2.5">
-            <img alt="" className="h-9 w-9 shrink-0 rounded-lg object-cover" src={siteInfo.logo} />
+            <img alt={siteInfo.logoAlt} className="h-10 w-10 shrink-0 object-contain" src={siteInfo.logo} />
             <span className="truncate font-display text-base font-extrabold text-primary">
               {siteInfo.shortName}
             </span>
@@ -32,13 +37,20 @@ export function MobileDrawer({ open, onClose, activeSection }) {
             type="button"
             onClick={onClose}
             className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-surface-container-low text-primary transition-colors hover:bg-surface-container"
-            aria-label="Close menu"
+            aria-label={t('common.closeMenu')}
           >
             <span className="material-symbols-outlined text-2xl">close</span>
           </button>
         </div>
 
-        <nav className="flex-1 overflow-y-auto px-3 py-4" aria-label="Main navigation">
+        <div className="relative z-10 shrink-0 border-b border-surface-container-highest px-4 py-3 md:hidden">
+          <p className="mb-2 px-1 font-display text-label-sm font-semibold text-on-surface-variant">
+            {t('language.label')}
+          </p>
+          <LanguageSelector fullWidth />
+        </div>
+
+        <nav className="flex-1 overflow-y-auto px-3 py-4" aria-label={t('common.mainNav')}>
           <ul className="flex flex-col gap-1">
             {navLinks.map((link) => {
               const isActive = activeSection === link.id;
@@ -75,7 +87,7 @@ export function MobileDrawer({ open, onClose, activeSection }) {
             className="flex items-center gap-3 rounded-xl border border-primary/15 bg-surface-container-low px-4 py-3.5 font-body text-base font-semibold text-primary transition-colors hover:bg-primary/5"
           >
             <span className="material-symbols-outlined text-[22px] text-primary">mail</span>
-            Contact Admissions
+            {t('common.contactAdmissions')}
           </a>
         </div>
       </aside>

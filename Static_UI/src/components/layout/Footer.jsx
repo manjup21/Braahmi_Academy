@@ -1,48 +1,43 @@
-import { siteConfig } from '../../config/site';
-import { siteInfo } from '../../data/content';
+import { useTranslation } from 'react-i18next';
+import { useContent } from '../../hooks/useContent';
 
 export function Footer() {
-  const telLinks = siteInfo.phones.map(({ number, name }) => {
-    const digits = number.replace(/\D/g, '');
-    return {
-      label: `${number} · ${name}`,
-      href: `tel:+91${digits}`,
-    };
-  });
+  const { t } = useTranslation();
+  const { siteInfo } = useContent();
 
   return (
-    <footer className="mt-section-gap flex w-full flex-col items-center gap-8 rounded-t-[32px] bg-primary px-container-mobile py-12 text-center text-on-primary">
-      <div className="flex flex-col items-center gap-3">
-        <img alt={`${siteInfo.shortName} logo`} className="h-14 w-14 rounded-lg object-cover" src={siteInfo.logo} />
-        <h2 className="font-display text-display-lg-mobile font-black text-on-primary">{siteInfo.collegeName}</h2>
-        <p className="font-display text-label-sm text-on-primary/70">{siteInfo.association}</p>
-      </div>
+    <footer className="border-t border-white/20 bg-primary/95 px-container-mobile py-3 text-on-primary backdrop-blur-md">
+      <div className="mx-auto flex max-w-7xl flex-col gap-3 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
+        <div className="flex min-w-0 items-center gap-2.5">
+          <img
+            alt={siteInfo.logoAlt}
+            className="h-9 w-9 shrink-0 object-contain sm:h-10 sm:w-10"
+            src={siteInfo.logo}
+          />
+          <div className="min-w-0 text-left">
+            <p className="truncate font-display text-sm font-extrabold leading-tight sm:text-base">
+              {siteInfo.shortName}
+            </p>
+            <p className="hidden truncate font-display text-[11px] text-on-primary/65 sm:block">
+              {siteInfo.association}
+            </p>
+          </div>
+        </div>
 
-      <p className="max-w-md font-body text-sm leading-relaxed text-on-primary/80">{siteInfo.address}</p>
-
-      <div className="flex flex-wrap justify-center gap-3">
-        {telLinks.map(({ label, href }) => (
+        <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 sm:justify-end">
           <a
-            key={label}
-            href={href}
-            className="rounded-full border border-white/20 px-4 py-2 font-display text-label-sm text-on-primary transition-colors hover:border-accent hover:text-accent"
+            href="#contact"
+            className="inline-flex items-center gap-1 font-display text-label-sm font-semibold text-accent transition-colors hover:text-white"
           >
-            {label}
+            {t('common.contactUs')}
+            <span className="material-symbols-outlined text-base" aria-hidden>
+              arrow_forward
+            </span>
           </a>
-        ))}
-      </div>
-
-      <a
-        href={`mailto:${siteConfig.contactEmail}`}
-        className="inline-flex items-center gap-2 rounded-full border border-accent/60 bg-accent/15 px-5 py-2.5 font-display text-label-sm font-semibold text-accent transition-colors hover:bg-accent hover:text-white"
-      >
-        <span className="material-symbols-outlined text-lg">mail</span>
-        {siteConfig.contactEmail}
-      </a>
-
-      <div className="mt-4 flex flex-col gap-1 font-body text-base opacity-60">
-        <p>© {new Date().getFullYear()} {siteInfo.shortName}.</p>
-        <p>{siteInfo.tagline}</p>
+          <p className="font-body text-xs text-on-primary/60">
+            {t('common.copyright', { year: new Date().getFullYear(), name: siteInfo.shortName })}
+          </p>
+        </div>
       </div>
     </footer>
   );

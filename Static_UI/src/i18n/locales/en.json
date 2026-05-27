@@ -1,0 +1,277 @@
+{
+  "language": {
+    "label": "Language",
+    "en": "English",
+    "kn": "Kannada",
+    "ta": "Tamil",
+    "te": "Telugu",
+    "ml": "Malayalam"
+  },
+  "common": {
+    "applyNow": "Apply Now",
+    "enquire": "Enquire",
+    "contactUs": "Contact Us",
+    "contactAdmissions": "Contact Admissions",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "chatWhatsApp": "Chat on WhatsApp",
+    "mainNav": "Main navigation",
+    "previousSlide": "Previous slide",
+    "nextSlide": "Next slide",
+    "carouselPagination": "Carousel pagination",
+    "slideOf": "Slide {{current}} of {{total}}",
+    "goToSlide": "Go to slide {{n}} of {{total}}",
+    "paused": "Paused",
+    "testimonial": "Student Achievements",
+    "vision": "Vision",
+    "mission": "Mission",
+    "copyright": "© {{year}} {{name}}.",
+    "location": "Davanagere, Karnataka",
+    "mapAlt": "Campus location map"
+  },
+  "site": {
+    "collegeName": "Braahmi Academy",
+    "shortName": "Braahmi Academy",
+    "association": "Braahmi Educational And Charitable Trust",
+    "associationReg": "(R.)",
+    "tagline": "Treading the untrodden..",
+    "address": "Opp BIET Gate Bus Stop, 2nd Main, Sri Swami Vivekanada Badavane, Biet Road-Biet, Davangere, 577005, Karnataka",
+    "logoAlt": "BEACT — Braahmi Academy, Davanagere. The Power to Service",
+    "timingWeekdays": "Mon - Sat : 08:00 AM - 08:00 PM",
+    "timingSunday": "Sun : 08:00 AM - 04:00 PM"
+  },
+  "phones": {
+    "primary": "Primary",
+    "office": "Office",
+    "admissions": "Admissions",
+    "landline": "Landline"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "campus": "Campus",
+    "streams": "Programs",
+    "gallery": "Gallery",
+    "contact": "Contact"
+  },
+  "hero": {
+    "campusAlt": "{{name}} campus",
+    "admissionsTitle": "Admissions Open",
+    "admissionsBody": "NEET, JEE, Integrated PUC, crash courses, and foundation programmes. Contact us to schedule a campus visit.",
+    "stats": {
+      "neet": "Long-term Coaching",
+      "jee": "IIT Preparation",
+      "puc": "Integrated Science",
+      "batch": "Students per Batch"
+    }
+  },
+  "notices": [
+    "Integrated PU with NEET/JEE coaching now open for admissions.",
+    "Exclusive crash courses for 10th, I PUC & II PUC PCMB board exams.",
+    "NEET long-term coaching with AC classrooms and hostel facilities.",
+    "Special English coaching for 2nd PU Arts & Commerce students.",
+    "JEE/NEET foundation classes from 6th standard — enroll early."
+  ],
+  "about": {
+    "heading": "Welcome to Braahmi Academy",
+    "paragraphs": [
+      "Braahmi Academy, Managed by Braahmi Educational And Charitable Trust (R.). Specializes in encouraging quality education and holistic growth of the students.",
+      "Braahmi Academy is set up with a focused mission: to inculcate love and eagerness for learning in students, and empower them to face the challenges of life. Braahmi Academy specializes in encouraging Discipline, Morality, Patriotism, Talents and Holistic growth of the students; as they are developed not only in academics, but also encouraged to actively participate in curricular, co-curricular, science and Technology, ancient culture and tradition and pro- academic activities.",
+      "Well academic plan, technologically advanced facilities, a method of learning faster, a spirit of excellence in students. This enables them to win laurels in academics, sports, cultural and other activities at District, State and National levels.",
+      "At Braahmi Academy, learners are mentored in the right environment and best method -to succeed academically and non-academically and enjoy a rewarding career.",
+      "Braahmi Academy is currently operating from one location at Karnataka ie; Davanagere."
+    ],
+    "imageAlt": "Braahmi Academy building exterior, Davanagere — NEET, JEE, KCET coaching"
+  },
+  "campus": {
+    "title": "Our Campus",
+    "subtitle": "Classrooms, laboratories, and digital library at {{name}}.",
+    "carouselLabel": "Campus facilities",
+    "facilities": {
+      "classroom": {
+        "name": "Classroom",
+        "role": "AC Classrooms",
+        "description": "Spacious, clean and well maintained classrooms with air conditioning for focused learning."
+      },
+      "laboratory": {
+        "name": "Laboratory",
+        "role": "Science Labs",
+        "description": "Physics, Chemistry and Biology labs equipped with necessary instruments for hands-on learning."
+      },
+      "library": {
+        "name": "Study Hall",
+        "role": "Seminars & Study",
+        "description": "Open learning spaces for seminars, supervised study, and competitive exam preparation."
+      }
+    }
+  },
+  "programs": {
+    "title": "Programs & Coaching",
+    "subtitle": "Present offerings and upcoming programmes at Braahmi Academy.",
+    "presentTitle": "Present Events",
+    "upcomingTitle": "Upcoming Events",
+    "items": {
+      "integrated-pu": {
+        "title": "Integrated PU with NEET/JEE",
+        "description": "Pre-University science programme combined with dedicated NEET and JEE preparation."
+      },
+      "crash-course": {
+        "title": "Exclusive Crash Courses",
+        "description": "Intensive coaching for 10th Std, I PUC, and II PUC PCMB board examinations."
+      },
+      "neet-long": {
+        "title": "NEET Long-term Coaching",
+        "description": "Structured long-term NEET programme with weekly tests, analysis, and mentorship."
+      },
+      "english-coaching": {
+        "title": "English & Skill Training",
+        "description": "Special English classes for 2nd PU Arts & Commerce and handwriting skill training."
+      },
+      "foundation": {
+        "title": "JEE/NEET Foundation (6th Std+)",
+        "description": "Early foundation classes building strong concepts from middle school onwards."
+      },
+      "nata-kvpy": {
+        "title": "NATA / KVPY / NTSE / NMMS",
+        "description": "Coaching for architecture entrance, KVPY, NTSE, NMMS, and Navodaya/Morarji exams."
+      },
+      "govt-exams": {
+        "title": "KPSC & Government Exams",
+        "description": "SDA, FDA, PSI, Banking, RRB, KAS & IAS preparation with expert guidance."
+      },
+      "skills": {
+        "title": "Skill Development Training",
+        "description": "Value-added skill development programmes for holistic career readiness."
+      }
+    }
+  },
+  "whyChooseUs": {
+    "title": "Why Choose Braahmi Academy?",
+    "items": {
+      "faculty": {
+        "title": "Experienced Faculty",
+        "description": "Well qualified and experienced faculty for all subjects."
+      },
+      "batches": {
+        "title": "Small Batches",
+        "description": "50 students per batch with 100% attention and individual concentration."
+      },
+      "ac": {
+        "title": "AC Classrooms",
+        "description": "Well equipped air-conditioned classrooms for comfortable learning."
+      },
+      "motivation": {
+        "title": "Motivational Sessions",
+        "description": "Result-oriented classes and motivational sessions by achievers."
+      },
+      "hostel": {
+        "title": "Hostel Facility",
+        "description": "Hostel for boys and girls with a homely atmosphere."
+      },
+      "transport": {
+        "title": "Transport",
+        "description": "Safe and reliable transport facility for day scholars."
+      }
+    }
+  },
+  "visionMission": {
+    "vision": "To be an Ideal institution for quality education; simultaneously developing human value, our tradition, culture and holistic development for students.",
+    "mission": "To be second parents in the campus and first parents in academics for our students and prepare them to reach their goals by providing comprehensive learning experience."
+  },
+  "faculty": {
+    "title": "Our Faculty",
+    "subtitle": "Experienced teachers guiding NEET, JEE, and PUC students at {{name}}.",
+    "carouselLabel": "Faculty members",
+    "photoAlt": "Portrait of {{name}}",
+    "items": {
+      "sreenivasa-goud": {
+        "name": "Sreenivasa Goud S",
+        "subject": "Principal",
+        "thought": "Every student deserves discipline, encouragement, and a clear path to success."
+      },
+      "k-vinay-kumar": {
+        "name": "K Vinay Kumar",
+        "subject": "Physics",
+        "thought": "Physics becomes simple when concepts are understood through practice, not rote learning."
+      },
+      "ganesh-patel": {
+        "name": "Ganesh Patel K L",
+        "subject": "Chemistry",
+        "thought": "Strong fundamentals in chemistry open the door to medical and engineering careers."
+      },
+      "salla-srinivas-reddy": {
+        "name": "Salla Srinivas Reddy",
+        "subject": "Biology",
+        "thought": "NEET biology needs clarity, diagrams, and regular revision — we build all three."
+      },
+      "mv-manohar-rao": {
+        "name": "M V Manohar Rao",
+        "subject": "Mathematics",
+        "thought": "Problem-solving habits built early carry students through boards and competitive exams."
+      },
+      "ashok-ks": {
+        "name": "Ashok K S",
+        "subject": "English",
+        "thought": "Clear communication in English strengthens confidence in every subject."
+      },
+      "dr-mallikarjuna-b": {
+        "name": "Dr Mallikarjuna B",
+        "subject": "Kannada",
+        "thought": "Language skills in Kannada enrich learning and connect students to our culture."
+      }
+    }
+  },
+  "testimonials": {
+    "featured": {
+      "name": "Sneha A N",
+      "quote": "For the prefix in my name, the sole responsibility is them. Thank you so very much."
+    },
+    "sectionTitle": "Student Achievements",
+    "sectionSubtitle": "What students and parents say about Braahmi Academy.",
+    "carouselLabel": "Student and parent testimonials",
+    "yearLabel": "Academic Year",
+    "marksLabel": "Marks",
+    "items": {
+      "student-01": {
+        "name": "Student",
+        "quote": "Braahmi Academy gave me the discipline and guidance I needed for NEET. The faculty truly cares about every student."
+      },
+      "student-02": {
+        "name": "Parent",
+        "quote": "The faculty keeps us informed, and our child has grown more confident since joining Braahmi Academy."
+      }
+    }
+  },
+  "gallery": {
+    "title": "Our Gallery",
+    "subtitle": "Campus life, classrooms, labs, and events at {{name}}.",
+    "ariaLabel": "Photo gallery",
+    "previousPhoto": "Previous photo",
+    "nextPhoto": "Next photo",
+    "viewPhoto": "View {{alt}}",
+    "thumbnails": "Gallery thumbnails",
+    "categories": {
+      "classroom": "Classroom",
+      "laboratory": "Laboratory",
+      "campus": "Campus",
+      "events": "Events"
+    },
+    "items": [
+      { "alt": "Students in classroom", "category": "classroom" },
+      { "alt": "Chemistry laboratory session", "category": "laboratory" },
+      { "alt": "Physics laboratory practical", "category": "laboratory" },
+      { "alt": "Seminar and parent meeting", "category": "campus" },
+      { "alt": "AC classroom with students", "category": "classroom" },
+      { "alt": "Physics lab group work", "category": "laboratory" },
+      { "alt": "Chemistry lab demonstration", "category": "laboratory" },
+      { "alt": "Student award ceremony", "category": "events" }
+    ]
+  },
+  "contact": {
+    "title": "Contact & Admissions",
+    "intro": "For registration, admissions, and enquiries contact {{name}}."
+  },
+  "footer": {
+    "openMap": "Open location in Google Maps"
+  }
+}
