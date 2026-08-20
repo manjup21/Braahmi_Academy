@@ -7,7 +7,6 @@ import { HeroSection } from './components/sections/HeroSection';
 import { NoticeTicker } from './components/sections/NoticeTicker';
 import { AboutSection } from './components/sections/AboutSection';
 import { CampusSection } from './components/sections/CampusSection';
-import { ProgramsSection } from './components/sections/ProgramsSection';
 import { WhyChooseUs } from './components/sections/WhyChooseUs';
 import { VisionMissionSection } from './components/sections/VisionMissionSection';
 import { FacultySection } from './components/sections/FacultySection';
@@ -62,7 +61,6 @@ export default function App() {
         <NoticeTicker />
         <AboutSection />
         <CampusSection />
-        <ProgramsSection />
         <WhyChooseUs />
         <VisionMissionSection />
         <FacultySection />

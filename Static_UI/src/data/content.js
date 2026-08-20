@@ -13,7 +13,6 @@ export const scrollSectionIds = [
   'home',
   'about',
   'campus',
-  'streams',
   'faculty',
   'gallery',
   'testimonials',
@@ -24,49 +23,32 @@ export const navLinkDefs = [
   { id: 'home', icon: 'home', href: '#home' },
   { id: 'about', icon: 'school', href: '#about' },
   { id: 'campus', icon: 'domain', href: '#campus' },
-  { id: 'streams', icon: 'account_tree', href: '#streams' },
   { id: 'gallery', icon: 'photo_library', href: '#gallery' },
   { id: 'contact', icon: 'mail', href: '#contact' },
 ];
 
 export const phoneDefs = [
-  { number: '9901320840', nameKey: 'primary' },
   { number: '7975268494', nameKey: 'office' },
-  { number: '9964868537', nameKey: 'admissions' },
-  { number: '08192222566', nameKey: 'landline' },
+  { number: '9901320840', nameKey: 'principal' },
 ];
 
-export const heroImage = `${campus}/hero-campus.png`;
+export const heroImage = `${campus}/hero-campus.jpg`;
 
 export const heroStatDefs = [
   { value: 'NEET', labelKey: 'neet', accent: true },
   { value: 'JEE', labelKey: 'jee', accent: false },
   { value: 'PUC', labelKey: 'puc', accent: true },
-  { value: '50', labelKey: 'batch', accent: false },
+  { value: 'KCET', labelKey: 'kcet', accent: false },
 ];
 
 export const welcomeImage = {
-  src: `${campus}/academy-building.jpg`,
+  src: `${campus}/academy-building.png`,
 };
 
 export const campusFacilityDefs = [
   { id: 'classroom', image: `${campus}/facility-classroom.jpg` },
   { id: 'laboratory', image: `${campus}/facility-laboratory.jpg` },
   { id: 'library', image: `${campus}/facility-library.jpg` },
-];
-
-export const programDefs = [
-  { id: 'integrated-pu', icon: 'biotech', filled: true },
-  { id: 'crash-course', icon: 'bolt', filled: false },
-  { id: 'neet-long', icon: 'menu_book', filled: true },
-  { id: 'english-coaching', icon: 'edit_note', filled: false },
-];
-
-export const upcomingProgramDefs = [
-  { id: 'foundation', icon: 'school', filled: true },
-  { id: 'nata-kvpy', icon: 'architecture', filled: false },
-  { id: 'govt-exams', icon: 'gavel', filled: true },
-  { id: 'skills', icon: 'psychology', filled: false },
 ];
 
 export const specialityDefs = [
@@ -113,14 +95,17 @@ export const testimonialDefs = [
 ];
 
 export const galleryPhotoFiles = [
-  'gallery-048.jpg',
-  'gallery-050.jpg',
-  'gallery-055.jpg',
-  'gallery-062.jpg',
-  'gallery-030.jpg',
-  'gallery-035.jpg',
-  'gallery-040.jpg',
-  'gallery-025.jpg',
+  'gallery-01-building.png',
+  'gallery-02-render.jpg',
+  'gallery-03-classroom.jpg',
+  'gallery-04-exam-hall.jpg',
+  'gallery-05-corridor.jpg',
+  'gallery-07-assembly.jpg',
+  'gallery-08-flag-ceremony.jpg',
+  'gallery-09-independence-day.jpg',
+  'gallery-10-student-formation.jpg',
+  'gallery-11-welcome.jpg',
+  'gallery-12-march-past.jpg',
 ];
 
-export const mapImage = `${campus}/hero-campus.png`;
+export const mapImage = `${campus}/hero-campus.jpg`;

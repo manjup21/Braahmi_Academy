@@ -7,12 +7,10 @@ import {
   heroStatDefs,
   navLinkDefs,
   phoneDefs,
-  programDefs,
   siteAssets,
   specialityDefs,
   staffDefs,
   testimonialDefs,
-  upcomingProgramDefs,
   welcomeImage,
 } from '../data/content';
 
@@ -124,16 +122,6 @@ export function useContent() {
         name: t(`campus.facilities.${facility.id}.name`),
         role: t(`campus.facilities.${facility.id}.role`),
         description: t(`campus.facilities.${facility.id}.description`),
-      })),
-      programs: programDefs.map((program) => ({
-        ...program,
-        title: t(`programs.items.${program.id}.title`),
-        description: t(`programs.items.${program.id}.description`),
-      })),
-      upcomingPrograms: upcomingProgramDefs.map((program) => ({
-        ...program,
-        title: t(`programs.items.${program.id}.title`),
-        description: t(`programs.items.${program.id}.description`),
       })),
       specialities: specialityDefs.map((item) => ({
         icon: item.icon,

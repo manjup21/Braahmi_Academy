@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { siteConfig } from '../../config/site';
 import { useContent } from '../../hooks/useContent';
 import { LanguageSelector } from '../ui/LanguageSelector';
+import { SiteLogo } from '../ui/SiteLogo';
 
 export function MobileDrawer({ open, onClose, activeSection }) {
   const { t } = useTranslation();
@@ -28,7 +29,11 @@ export function MobileDrawer({ open, onClose, activeSection }) {
       >
         <div className="flex shrink-0 items-center justify-between gap-3 border-b border-surface-container-highest px-4 py-4">
           <div className="flex min-w-0 items-center gap-2.5">
-            <img alt={siteInfo.logoAlt} className="h-10 w-10 shrink-0 object-contain" src={siteInfo.logo} />
+            <SiteLogo
+              alt={siteInfo.logoAlt}
+              className="h-[3.25rem] w-[3.25rem]"
+              src={siteInfo.logo}
+            />
             <span className="truncate font-display text-base font-extrabold text-primary">
               {siteInfo.shortName}
             </span>

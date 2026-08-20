@@ -35,22 +35,19 @@
     "association": "Braahmi Educational And Charitable Trust",
     "associationReg": "(R.)",
     "tagline": "Treading the untrodden..",
-    "address": "Opp BIET Gate Bus Stop, 2nd Main, Sri Swami Vivekanada Badavane, Biet Road-Biet, Davangere, 577005, Karnataka",
+    "address": "187/2, NH-4, beside Mayura Global School, Banashankari Layout, Shamanur, Davangere, Karnataka 577004, India",
     "logoAlt": "BEACT — Braahmi Academy, Davanagere. The Power to Service",
     "timingWeekdays": "Mon - Sat : 08:00 AM - 08:00 PM",
     "timingSunday": "Sun : 08:00 AM - 04:00 PM"
   },
   "phones": {
-    "primary": "Primary",
     "office": "Office",
-    "admissions": "Admissions",
-    "landline": "Landline"
+    "principal": "Principal"
   },
   "nav": {
     "home": "Home",
     "about": "About",
     "campus": "Campus",
-    "streams": "Programs",
     "gallery": "Gallery",
     "contact": "Contact"
   },
@@ -62,7 +59,7 @@
       "neet": "Long-term Coaching",
       "jee": "IIT Preparation",
       "puc": "Integrated Science",
-      "batch": "Students per Batch"
+      "kcet": "Karnataka Entrance"
     }
   },
   "notices": [
@@ -81,7 +78,7 @@
       "At Braahmi Academy, learners are mentored in the right environment and best method -to succeed academically and non-academically and enjoy a rewarding career.",
       "Braahmi Academy is currently operating from one location at Karnataka ie; Davanagere."
     ],
-    "imageAlt": "Braahmi Academy building exterior, Davanagere — NEET, JEE, KCET coaching"
+    "imageAlt": "Braahmi Academy campus building exterior, Davanagere"
   },
   "campus": {
     "title": "Our Campus",
@@ -102,46 +99,6 @@
         "name": "Study Hall",
         "role": "Seminars & Study",
         "description": "Open learning spaces for seminars, supervised study, and competitive exam preparation."
-      }
-    }
-  },
-  "programs": {
-    "title": "Programs & Coaching",
-    "subtitle": "Present offerings and upcoming programmes at Braahmi Academy.",
-    "presentTitle": "Present Events",
-    "upcomingTitle": "Upcoming Events",
-    "items": {
-      "integrated-pu": {
-        "title": "Integrated PU with NEET/JEE",
-        "description": "Pre-University science programme combined with dedicated NEET and JEE preparation."
-      },
-      "crash-course": {
-        "title": "Exclusive Crash Courses",
-        "description": "Intensive coaching for 10th Std, I PUC, and II PUC PCMB board examinations."
-      },
-      "neet-long": {
-        "title": "NEET Long-term Coaching",
-        "description": "Structured long-term NEET programme with weekly tests, analysis, and mentorship."
-      },
-      "english-coaching": {
-        "title": "English & Skill Training",
-        "description": "Special English classes for 2nd PU Arts & Commerce and handwriting skill training."
-      },
-      "foundation": {
-        "title": "JEE/NEET Foundation (6th Std+)",
-        "description": "Early foundation classes building strong concepts from middle school onwards."
-      },
-      "nata-kvpy": {
-        "title": "NATA / KVPY / NTSE / NMMS",
-        "description": "Coaching for architecture entrance, KVPY, NTSE, NMMS, and Navodaya/Morarji exams."
-      },
-      "govt-exams": {
-        "title": "KPSC & Government Exams",
-        "description": "SDA, FDA, PSI, Banking, RRB, KAS & IAS preparation with expert guidance."
-      },
-      "skills": {
-        "title": "Skill Development Training",
-        "description": "Value-added skill development programmes for holistic career readiness."
       }
     }
   },
@@ -257,14 +214,50 @@
       "events": "Events"
     },
     "items": [
-      { "alt": "Students in classroom", "category": "classroom" },
-      { "alt": "Chemistry laboratory session", "category": "laboratory" },
-      { "alt": "Physics laboratory practical", "category": "laboratory" },
-      { "alt": "Seminar and parent meeting", "category": "campus" },
-      { "alt": "AC classroom with students", "category": "classroom" },
-      { "alt": "Physics lab group work", "category": "laboratory" },
-      { "alt": "Chemistry lab demonstration", "category": "laboratory" },
-      { "alt": "Student award ceremony", "category": "events" }
+      {
+        "alt": "Braahmi Academy campus building exterior",
+        "category": "campus"
+      },
+      {
+        "alt": "Braahmi Academy campus architectural view",
+        "category": "campus"
+      },
+      {
+        "alt": "Students learning in classroom",
+        "category": "classroom"
+      },
+      {
+        "alt": "Students writing exams in classroom",
+        "category": "classroom"
+      },
+      {
+        "alt": "Campus corridor with classroom and library access",
+        "category": "campus"
+      },
+      {
+        "alt": "Students assembled in classroom for a program",
+        "category": "classroom"
+      },
+      {
+        "alt": "Independence Day flag ceremony on campus",
+        "category": "events"
+      },
+      {
+        "alt": "Independence Day celebration with students and guests",
+        "category": "events"
+      },
+      {
+        "alt": "Students in formation during campus drill",
+        "category": "events"
+      },
+      {
+        "alt": "Campus entrance decorated for celebration",
+        "category": "events"
+      },
+      {
+        "alt": "Students marching during flag hoisting ceremony",
+        "category": "events"
+      }
     ]
   },
   "contact": {

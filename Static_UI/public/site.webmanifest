@@ -1,0 +1,24 @@
+{
+  "name": "Braahmi Academy",
+  "short_name": "Braahmi",
+  "description": "NEET, JEE, KCET coaching and Integrated PUC at Braahmi Academy, Davangere.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFFBF7",
+  "theme_color": "#4A3228",
+  "lang": "en",
+  "icons": [
+    {
+      "src": "/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

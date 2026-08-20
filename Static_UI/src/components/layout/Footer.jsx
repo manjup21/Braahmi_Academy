@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { useContent } from '../../hooks/useContent';
+import { SiteLogo } from '../ui/SiteLogo';
 
 export function Footer() {
   const { t } = useTranslation();
@@ -9,9 +10,9 @@ export function Footer() {
     <footer className="border-t border-white/20 bg-primary/95 px-container-mobile py-3 text-on-primary backdrop-blur-md">
       <div className="mx-auto flex max-w-7xl flex-col gap-3 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
         <div className="flex min-w-0 items-center gap-2.5">
-          <img
+          <SiteLogo
             alt={siteInfo.logoAlt}
-            className="h-9 w-9 shrink-0 object-contain sm:h-10 sm:w-10"
+            className="h-[2.925rem] w-[2.925rem] sm:h-[3.25rem] sm:w-[3.25rem]"
             src={siteInfo.logo}
           />
           <div className="min-w-0 text-left">

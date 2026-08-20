@@ -4,6 +4,7 @@ import { siteConfig } from '../../config/site';
 import { useContent } from '../../hooks/useContent';
 import { scrollToSection } from '../../utils/scroll';
 import { LanguageSelector } from '../ui/LanguageSelector';
+import { SiteLogo } from '../ui/SiteLogo';
 
 export function Header({ drawerOpen = false, onMenuOpen, onMenuClose }) {
   const { t } = useTranslation();
@@ -42,9 +43,9 @@ export function Header({ drawerOpen = false, onMenuOpen, onMenuClose }) {
           onClick={() => scrollToSection('home')}
           className="flex min-w-0 items-center gap-2 md:gap-3"
         >
-          <img
+          <SiteLogo
             alt={siteInfo.logoAlt}
-            className="header-logo h-10 w-10 shrink-0 object-contain transition-all duration-300 md:h-12 md:w-12"
+            className="header-logo h-[3.25rem] w-[3.25rem] transition-all duration-300 md:h-[3.9rem] md:w-[3.9rem]"
             src={siteInfo.logo}
           />
           <span className="header-title font-display text-sm font-extrabold leading-tight tracking-tight text-primary transition-all duration-300 sm:text-base md:text-[2.45rem] md:leading-[4.025rem] md:tracking-[-0.02em]">

@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Disallow Vite/dev assets if ever exposed
+Disallow: /src/
+Disallow: /node_modules/
+
+Sitemap: https://braahmiacademy.com/sitemap.xml
