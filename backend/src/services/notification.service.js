@@ -154,6 +154,8 @@ async function isSectionFullyNotified(classId, sectionId, dateStr) {
   );
 }
 
+const OFFICE_PHONE_DISPLAY = '7975268494';
+
 function toAttendanceRecipients(students, dateStr) {
   return students.map((s) => ({
     student_id: s.student_id,
@@ -163,8 +165,9 @@ function toAttendanceRecipients(students, dateStr) {
       guardian_name: s.father_name || s.guardian_name,
       student_name: s.student_name,
       date: fmtDate(dateStr),
-      slots: (s.absent_slots || []).length > 0 ? s.absent_slots.join(', ') : '',
+      slots: (s.absent_slots || []).length > 0 ? s.absent_slots.join(', ') : 'Full day',
       school_name: env.schoolName,
+      school_phone: OFFICE_PHONE_DISPLAY,
     },
   }));
 }
@@ -172,25 +175,27 @@ function toAttendanceRecipients(students, dateStr) {
 /** Log preview text, rendered for the first recipient. */
 function buildAttendancePreview(ch, recipient, dateStr) {
   const v = recipient.variables;
+  const office = v.school_phone || OFFICE_PHONE_DISPLAY;
   if (ch !== 'whatsapp') {
     const slotPart = v.slots ? ` (${v.slots})` : '';
-    return `Your child ${v.student_name} was absent on ${v.date}${slotPart}. For details contact school. -${env.schoolName}`;
+    return `Your child ${v.student_name} was absent on ${v.date}${slotPart}. Contact college office ${office}. -${env.schoolName}`;
   }
   const slotLines = (recipient.absent_slots || []).length > 0
     ? recipient.absent_slots.map((s) => `• ${s}`).join('\n')
     : '• Full day';
   return [
-    `*Attendance Alert* — ${env.schoolName}`,
+    `*${env.schoolName || 'BRAAHMI ACADEMY'}*`,
+    '*Attendance Alert*',
     '',
     'Dear Parent,',
     '',
-    `This is to inform you that your child *${v.student_name}* was marked absent on *${fmtDateLong(dateStr)}* for the following periods:`,
+    `This is to inform you that your child, *${v.student_name}*, was marked absent on *${fmtDateLong(dateStr)}* for the following periods:`,
     slotLines,
     '',
-    'If you believe this is an error, please contact the school office.',
+    'If you believe this is an error, please contact the college office.',
+    `*${office}*`,
     '',
-    'Thank you,',
-    env.schoolName,
+    'Thank you.',
   ].join('\n');
 }
 
@@ -693,8 +698,10 @@ export async function sendExamNotification({ examId, channel, actorUserId }) {
     const subjectBlock = subjectLines.length > 0
       ? `\n\n*Subject-wise Marks:*\n${subjectLines.join('\n')}`
       : '';
+    const office = String(env.schoolPhone || '').trim() || '+917975268494';
     previewMsg = [
-      `*Exam Result* — ${env.schoolName}`,
+      `*${env.schoolName || 'BRAAHMI ACADEMY'}*`,
+      '*Exam Result*',
       '',
       'Dear Parent,',
       '',
@@ -703,12 +710,12 @@ export async function sendExamNotification({ examId, channel, actorUserId }) {
       `Student: *${v.student_name}*${dateLine}`,
       subjectBlock,
       '',
-      `*Total: ${v.total_marks} / ${v.max_marks}*${pctLine}`,
+      `Total: *${v.total_marks}* / *${v.max_marks}*${pctLine}`,
       '',
-      'For any queries, please contact the school office.',
+      'For any queries, please contact the office.',
+      `*${office}*`,
       '',
-      'Thank you,',
-      env.schoolName,
+      'Thank you',
     ].join('\n');
   } else {
     const datePart = exam.exam_date ? ` on ${fmtDate(exam.exam_date)}` : '';
@@ -761,7 +768,7 @@ function buildFeeDuePreviewMessage({ studentName, balance, dueDateIso }) {
   const student = studentName || 'your child';
   const amount = formatPendingAmount(balance);
   const dueText = formatFeeDueDateForMessage(dueDateIso);
-  const office = String(env.schoolPhone || '').trim() || 'the school office';
+  const office = String(env.schoolPhone || '').trim() || '+917975268494';
   const school = env.schoolName || 'Braahmi Academy';
   return [
     `*${school}*`,
@@ -769,13 +776,14 @@ function buildFeeDuePreviewMessage({ studentName, balance, dueDateIso }) {
     '',
     'Dear Parent,',
     '',
-    `This is a reminder that the fees for your child *${student}* is due on *${dueText}*.`,
+    `This is a reminder to pay the pending fees for your child, *${student}*, by *${dueText}*`,
     '',
     `Pending Fees: *₹${amount}*`,
     '',
-    `If you have any queries, please contact the office *${office}*`,
+    'If you have any queries, please contact the college office.',
+    office,
     '',
-    'Thank you',
+    'Thank you.',
   ].join('\n');
 }
 
@@ -1177,7 +1185,7 @@ export async function retryFailedNotifications({ logId, actorUserId }) {
       const stu = absentMap[r.student_id] || {};
       const slotText = (stu.absent_slots || []).length > 0
         ? stu.absent_slots.join(', ')
-        : '';
+        : 'Full day';
       return {
         recipient_id: r.recipient_id,
         mobile: r.mobile,
@@ -1187,6 +1195,7 @@ export async function retryFailedNotifications({ logId, actorUserId }) {
           date: fmtDate(dateStr),
           slots: slotText,
           school_name: env.schoolName,
+          school_phone: OFFICE_PHONE_DISPLAY,
         },
       };
     });

@@ -30,34 +30,36 @@ export function slotLabel(slotIndex) {
   return `Period ${slotIndex}`;
 }
 
-export function buildAttendanceMessage({ studentName, date, slots, schoolName, channel }) {
-  const school = schoolName || 'School';
+export function buildAttendanceMessage({ studentName, date, slots, schoolName, schoolPhone, channel }) {
+  const school = schoolName || 'BRAAHMI ACADEMY';
   const student = studentName || 'your child';
   const dateStr = fmtDate(date);
   const dateLong = fmtDateLong(date);
+  const office = String(schoolPhone || '').trim() || '7975268494';
 
   if (channel === 'whatsapp') {
     const slotLines = (slots || []).length > 0
       ? slots.map((s) => `• Period ${s}`).join('\n')
       : '• Full day';
     return [
-      `*Attendance Alert* — ${school}`,
+      `*${school}*`,
+      '*Attendance Alert*',
       '',
       'Dear Parent,',
       '',
-      `This is to inform you that your child *${student}* was marked absent on *${dateLong}* for the following periods:`,
+      `This is to inform you that your child, *${student}*, was marked absent on *${dateLong}* for the following periods:`,
       slotLines,
       '',
-      'If you believe this is an error, please contact the school office.',
+      'If you believe this is an error, please contact the college office.',
+      `*${office}*`,
       '',
-      'Thank you,',
-      school,
+      'Thank you.',
     ].join('\n');
   }
 
   const slotStr = (slots || []).length > 0
     ? ` (Period ${slots.join(',')})` : '';
-  return `Your child ${student} was absent on ${dateStr}${slotStr}. For details contact school. -${school}`;
+  return `Your child ${student} was absent on ${dateStr}${slotStr}. Contact college office ${office}. -${school}`;
 }
 
 export function buildExamResultMessage({ studentName, examName, examDate, totalMarks, maxMarks, schoolName, channel, subjectMarks }) {
@@ -82,8 +84,10 @@ export function buildExamResultMessage({ studentName, examName, examDate, totalM
       return `• ${sm.subject_name}: *${m}*/${mx}`;
     });
 
+    const office = '+917975268494';
     const lines = [
-      `*Exam Result* \u2014 ${school}`,
+      `*${school}*`,
+      '*Exam Result*',
       '',
       'Dear Parent,',
       '',
@@ -98,12 +102,12 @@ export function buildExamResultMessage({ studentName, examName, examDate, totalM
 
     lines.push(
       '',
-      `*Total: ${marks} / ${max}*${pctLine}`,
+      `Total: *${marks}* / *${max}*${pctLine}`,
       '',
-      'For any queries, please contact the school office.',
+      'For any queries, please contact the office.',
+      `*${office}*`,
       '',
-      'Thank you,',
-      school
+      'Thank you'
     );
     return lines.join('\n');
   }
@@ -122,8 +126,8 @@ export function formatFeeDueDateForMessage(dueDate) {
 }
 
 /**
- * Matches MSG91 WhatsApp template "Fees Alert":
- * {{1}} student name, {{2}} due date, {{3}} pending amount, {{4}} office phone
+ * Matches MSG91 WhatsApp template braahmi_fees_alert:
+ * {{1}} student name, {{2}} due date, {{3}} pending amount (office phone is fixed in the template)
  */
 export function buildFeeDueMessage({
   studentName,
@@ -139,7 +143,7 @@ export function buildFeeDueMessage({
     ? Number(balance).toLocaleString('en-IN', { maximumFractionDigits: 2 })
     : '0';
   const dueText = formatFeeDueDateForMessage(dueDate);
-  const office = String(schoolPhone || '').trim() || 'the school office';
+  const office = String(schoolPhone || '').trim() || '+917975268494';
 
   if (channel === 'whatsapp') {
     return [
@@ -148,17 +152,18 @@ export function buildFeeDueMessage({
       '',
       'Dear Parent,',
       '',
-      `This is a reminder that the fees for your child *${student}* is due on *${dueText}*.`,
+      `This is a reminder to pay the pending fees for your child, *${student}*, by *${dueText}*`,
       '',
       `Pending Fees: *₹${amount}*`,
       '',
-      `If you have any queries, please contact the office *${office}*`,
+      'If you have any queries, please contact the college office.',
+      office,
       '',
-      'Thank you',
+      'Thank you.',
     ].join('\n');
   }
 
-  return `Fees for ${student} due on ${dueText}. Pending: Rs.${amount}. Contact ${office}. -${school}`;
+  return `Fees for ${student} due by ${dueText}. Pending: Rs.${amount}. Contact college office ${office}. -${school}`;
 }
 
 export function channelLabel(channel) {
