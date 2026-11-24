@@ -85,7 +85,17 @@ export function MobileDrawer({ open, onClose, activeSection }) {
           </ul>
         </nav>
 
-        <div className="shrink-0 border-t border-surface-container-highest px-3 py-4">
+        <div className="flex shrink-0 flex-col gap-2 border-t border-surface-container-highest px-3 py-4">
+          <a
+            href={siteConfig.staffPortalUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={onClose}
+            className="flex items-center gap-3 rounded-xl bg-accent px-4 py-3.5 font-body text-base font-semibold text-white shadow-sm transition-colors hover:bg-accent/90"
+          >
+            <span className="material-symbols-outlined text-[22px] text-white">login</span>
+            {t('common.staffPortal')}
+          </a>
           <a
             href={`mailto:${siteConfig.contactEmail}`}
             onClick={onClose}

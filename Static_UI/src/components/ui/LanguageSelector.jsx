@@ -2,7 +2,7 @@ import { useEffect, useId, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { languages } from '../../i18n/languages';
 
-export function LanguageSelector({ className = '', fullWidth = false }) {
+export function LanguageSelector({ className = '', fullWidth = false, compactOnMobile = false }) {
   const { i18n, t } = useTranslation();
   const [open, setOpen] = useState(false);
   const rootRef = useRef(null);
@@ -42,11 +42,15 @@ export function LanguageSelector({ className = '', fullWidth = false }) {
 
   const triggerClass = fullWidth
     ? 'flex w-full items-center justify-between gap-2 px-3 py-2.5'
-    : 'inline-flex w-full min-w-[7.25rem] items-center justify-between gap-2 px-3 py-1.5';
+    : compactOnMobile
+      ? 'inline-flex items-center justify-center gap-0.5 px-2 py-1.5 sm:min-w-[7.25rem] sm:justify-between sm:gap-2 sm:px-3'
+      : 'inline-flex w-full min-w-[7.25rem] items-center justify-between gap-2 px-3 py-1.5';
 
   const menuClass = fullWidth
     ? 'left-0 right-0 w-full'
-    : 'left-0 w-full min-w-full';
+    : compactOnMobile
+      ? 'right-0 left-auto w-40 sm:left-0 sm:right-auto sm:w-full sm:min-w-full'
+      : 'left-0 w-full min-w-full';
 
   return (
     <div ref={rootRef} className={rootClass.trim()}>
@@ -56,15 +60,21 @@ export function LanguageSelector({ className = '', fullWidth = false }) {
         aria-haspopup="listbox"
         aria-expanded={open}
         aria-controls={listId}
+        aria-label={t('language.label')}
         onClick={() => setOpen((value) => !value)}
         className={`${triggerClass} rounded-full border border-primary/20 bg-surface/80 font-display text-xs font-semibold text-primary transition-colors hover:border-primary hover:bg-primary/5 focus:outline-none focus:ring-2 focus:ring-accent/40 sm:text-label-sm`}
       >
-        <span className="truncate">{current.nativeLabel}</span>
+        <span className={compactOnMobile ? 'hidden truncate sm:inline' : 'truncate'}>
+          {current.nativeLabel}
+        </span>
         <span className="flex shrink-0 items-center gap-0.5 text-primary/70">
           <span className="material-symbols-outlined text-[18px]" aria-hidden>
             language
           </span>
-          <span className="material-symbols-outlined text-[18px]" aria-hidden>
+          <span
+            className={`material-symbols-outlined text-[18px] ${compactOnMobile ? 'hidden sm:inline' : ''}`}
+            aria-hidden
+          >
             {open ? 'expand_less' : 'expand_more'}
           </span>
         </span>
