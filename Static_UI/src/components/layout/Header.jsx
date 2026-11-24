@@ -56,11 +56,13 @@ export function Header({ drawerOpen = false, onMenuOpen, onMenuClose }) {
       <div className="flex shrink-0 items-center gap-2 sm:gap-3">
         <LanguageSelector className="shrink-0" />
         <a
-          href={`mailto:${siteConfig.contactEmail}`}
+          href={siteConfig.staffPortalUrl}
+          target="_blank"
+          rel="noopener noreferrer"
           className="hidden items-center gap-1 rounded-full border border-primary/20 px-3 py-1.5 font-display text-label-sm font-semibold text-primary transition-colors hover:border-primary hover:bg-primary/5 md:inline-flex lg:px-4"
         >
-          <span className="material-symbols-outlined text-lg">mail</span>
-          {t('common.enquire')}
+          <span className="material-symbols-outlined text-lg">login</span>
+          {t('common.staffPortal')}
         </a>
         <a
           href={siteConfig.applyFormUrl}

@@ -2,14 +2,12 @@
   "language": {
     "label": "Language",
     "en": "English",
-    "kn": "Kannada",
-    "ta": "Tamil",
-    "te": "Telugu",
-    "ml": "Malayalam"
+    "kn": "Kannada"
   },
   "common": {
     "applyNow": "Apply Now",
     "enquire": "Enquire",
+    "staffPortal": "Staff Portal",
     "contactUs": "Contact Us",
     "contactAdmissions": "Contact Admissions",
     "openMenu": "Open menu",
@@ -215,48 +213,52 @@
     },
     "items": [
       {
-        "alt": "Braahmi Academy campus building exterior",
+        "alt": "Braahmi Academy campus building with school bus",
         "category": "campus"
       },
       {
-        "alt": "Braahmi Academy campus architectural view",
+        "alt": "Braahmi Academy campus exterior and college bus",
         "category": "campus"
       },
       {
-        "alt": "Students learning in classroom",
+        "alt": "Students attending class in an AC classroom",
         "category": "classroom"
       },
       {
-        "alt": "Students writing exams in classroom",
+        "alt": "Teacher taking a lecture in the classroom",
         "category": "classroom"
       },
       {
-        "alt": "Campus corridor with classroom and library access",
+        "alt": "Students studying and writing in classroom",
+        "category": "classroom"
+      },
+      {
+        "alt": "Students performing chemistry practicals in the lab",
+        "category": "laboratory"
+      },
+      {
+        "alt": "Physics lab session with apparatus and instructor",
+        "category": "laboratory"
+      },
+      {
+        "alt": "Biology lab students working with microscopes",
+        "category": "laboratory"
+      },
+      {
+        "alt": "Anatomy demonstration with skeleton model in the lab",
+        "category": "laboratory"
+      },
+      {
+        "alt": "Students reading together in the study hall library",
         "category": "campus"
       },
       {
-        "alt": "Students assembled in classroom for a program",
-        "category": "classroom"
+        "alt": "Hostel students studying in their dormitory room",
+        "category": "campus"
       },
       {
-        "alt": "Independence Day flag ceremony on campus",
-        "category": "events"
-      },
-      {
-        "alt": "Independence Day celebration with students and guests",
-        "category": "events"
-      },
-      {
-        "alt": "Students in formation during campus drill",
-        "category": "events"
-      },
-      {
-        "alt": "Campus entrance decorated for celebration",
-        "category": "events"
-      },
-      {
-        "alt": "Students marching during flag hoisting ceremony",
-        "category": "events"
+        "alt": "Hostel group study session in the residential block",
+        "category": "campus"
       }
     ]
   },

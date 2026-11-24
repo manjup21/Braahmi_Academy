@@ -23,12 +23,12 @@ export function FacultySection() {
           slideClassName="w-[min(88vw,280px)] sm:w-[min(75vw,300px)] lg:w-[calc((100%-2.5rem)/3)]"
         >
           {faculty.map((member, index) => (
-            <Reveal key={member.id} delay={index * 80}>
+            <Reveal key={member.id} delay={index * 80} className="h-full w-full">
               <article className="hover-lift flex h-full min-h-72 flex-col overflow-hidden rounded-[28px] border border-surface-container-highest bg-white shadow-sm">
                 <div className="relative aspect-4/5 w-full shrink-0 overflow-hidden bg-surface-container-low">
                   <ContentImage
                     alt={t('faculty.photoAlt', { name: member.name })}
-                    className="h-full w-full object-cover object-top"
+                    className="absolute inset-0 h-full w-full object-cover object-[center_20%]"
                     src={member.image}
                   />
                 </div>

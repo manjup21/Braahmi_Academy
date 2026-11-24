@@ -42,7 +42,7 @@ export const heroStatDefs = [
 ];
 
 export const welcomeImage = {
-  src: `${campus}/academy-building.png`,
+  src: `${campus}/academy-building.jpg`,
 };
 
 export const campusFacilityDefs = [
@@ -95,17 +95,18 @@ export const testimonialDefs = [
 ];
 
 export const galleryPhotoFiles = [
-  'gallery-01-building.png',
-  'gallery-02-render.jpg',
+  'gallery-01-campus-building.jpg',
+  'gallery-02-campus-bus.jpg',
   'gallery-03-classroom.jpg',
-  'gallery-04-exam-hall.jpg',
-  'gallery-05-corridor.jpg',
-  'gallery-07-assembly.jpg',
-  'gallery-08-flag-ceremony.jpg',
-  'gallery-09-independence-day.jpg',
-  'gallery-10-student-formation.jpg',
-  'gallery-11-welcome.jpg',
-  'gallery-12-march-past.jpg',
+  'gallery-04-classroom-lecture.jpg',
+  'gallery-05-classroom-study.jpg',
+  'gallery-06-chemistry-lab.jpg',
+  'gallery-07-physics-lab.jpg',
+  'gallery-08-biology-lab.jpg',
+  'gallery-09-anatomy-lab.jpg',
+  'gallery-10-library.jpg',
+  'gallery-11-hostel-study.jpg',
+  'gallery-12-hostel-group-study.jpg',
 ];
 
 export const mapImage = `${campus}/hero-campus.jpg`;

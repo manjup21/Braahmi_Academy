@@ -4,5 +4,7 @@ export const siteConfig = {
   contactEmail: import.meta.env.VITE_CONTACT_EMAIL || 'braahmiacademy@gmail.com',
   whatsappNumber: import.meta.env.VITE_WHATSAPP_NUMBER || '919901320840',
   applyFormUrl: import.meta.env.VITE_APPLY_FORM_URL || 'mailto:braahmiacademy@gmail.com?subject=Admission%20Enquiry',
+  staffPortalUrl:
+    import.meta.env.VITE_STAFF_PORTAL_URL || 'https://erp.braahmiacademy.com/login',
   mapsUrl: import.meta.env.VITE_MAPS_URL || 'https://maps.app.goo.gl/zyBqmM8gACdVBeQa9',
 };

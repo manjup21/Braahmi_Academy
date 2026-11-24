@@ -93,10 +93,13 @@ export function Carousel({
 
   const scrollToIndex = (index) => {
     const track = trackRef.current;
+    const row = track?.firstElementChild;
     const items = track?.querySelectorAll('[data-carousel-item]');
     const item = items?.[index];
-    if (!track || !item) return;
-    track.scrollTo({ left: item.offsetLeft, behavior: 'smooth' });
+    if (!track || !row || !item) return;
+    // Align to the slide itself (not padding/row offset), so faces aren't mid-cropped after arrow moves.
+    const left = Math.max(0, item.offsetLeft - row.offsetLeft);
+    track.scrollTo({ left, behavior: 'smooth' });
   };
 
   const scrollByStep = (direction) => {
@@ -154,7 +157,7 @@ export function Carousel({
         ref={trackRef}
         aria-label={ariaLabel}
         aria-roledescription="carousel"
-        className="carousel-track overflow-x-auto scroll-smooth px-3 pb-2 pt-1"
+        className="carousel-track overflow-x-auto scroll-smooth scroll-px-3 px-3 pb-2 pt-1"
         role="region"
       >
         <div className={trackRowClass}>

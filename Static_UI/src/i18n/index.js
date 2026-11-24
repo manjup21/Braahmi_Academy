@@ -2,9 +2,6 @@ import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import en from './locales/en.json';
 import kn from './locales/kn.json';
-import ta from './locales/ta.json';
-import te from './locales/te.json';
-import ml from './locales/ml.json';
 import { defaultLanguage, languageStorageKey, languages } from './languages';
 
 const supportedCodes = languages.map((lang) => lang.code);
@@ -13,6 +10,10 @@ function getInitialLanguage() {
   if (typeof window === 'undefined') return defaultLanguage;
   const stored = localStorage.getItem(languageStorageKey);
   if (stored && supportedCodes.includes(stored)) return stored;
+  // Clear removed locales (ta/te/ml) left in older sessions
+  if (stored && !supportedCodes.includes(stored)) {
+    localStorage.removeItem(languageStorageKey);
+  }
   const browser = navigator.language?.split('-')[0];
   if (browser && supportedCodes.includes(browser)) return browser;
   return defaultLanguage;
@@ -24,9 +25,6 @@ i18n.use(initReactI18next).init({
   resources: {
     en: { translation: en },
     kn: { translation: kn },
-    ta: { translation: ta },
-    te: { translation: te },
-    ml: { translation: ml },
   },
   lng: initialLanguage,
   fallbackLng: defaultLanguage,
